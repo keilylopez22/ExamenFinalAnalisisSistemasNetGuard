@@ -1,9 +1,10 @@
+# syntax=docker/dockerfile:1
 # ── Stage 1: build ──────────────────────────────────────────────────────────
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 COPY NetGuardGT.Api.csproj .
-RUN dotnet restore
+RUN dotnet restore --no-cache
 
 COPY . .
 RUN dotnet publish -c Release -o /app/publish --no-restore
@@ -12,7 +13,6 @@ RUN dotnet publish -c Release -o /app/publish --no-restore
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
 
-# Directorio para el archivo SQLite (se monta como Disk en Render)
 RUN mkdir -p /data
 
 COPY --from=build /app/publish .
