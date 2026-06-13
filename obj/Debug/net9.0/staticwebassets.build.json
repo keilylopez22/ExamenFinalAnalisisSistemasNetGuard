@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "nSPlGc3mYgWJ8rypstMc8xemGa2InDpRNEMrjq5UCKs=",
+  "Source": "NetGuardGT.Api",
+  "BasePath": "_content/NetGuardGT.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
