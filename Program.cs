@@ -5,8 +5,13 @@ using NetGuardGT.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// SQLite — archivo en /data/netguardgt.db dentro del contenedor (volume mount en Render)
+var dbPath = Path.Combine("/data", "netguardgt.db");
+if (builder.Environment.IsDevelopment())
+    dbPath = Path.Combine(Directory.GetCurrentDirectory(), "netguardgt.db");
+
 builder.Services.AddDbContext<AppDbContext>(opt =>
-    opt.UseInMemoryDatabase("NetGuardGT"));
+    opt.UseSqlite($"Data Source={dbPath}"));
 
 builder.Services.AddScoped<IncidentService>();
 builder.Services.AddScoped<ReportService>();
@@ -17,9 +22,12 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Ensure DB is seeded
+// Aplicar migraciones y seed automáticamente al iniciar
 using (var scope = app.Services.CreateScope())
-    scope.ServiceProvider.GetRequiredService<AppDbContext>().Database.EnsureCreated();
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+}
 
 app.UseSwagger();
 app.UseSwaggerUI();
