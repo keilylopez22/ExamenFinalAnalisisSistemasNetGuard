@@ -4,3 +4,6 @@ obj/
 .vs/
 *.suo
 .env
+netguardgt.db
+netguardgt.db-shm
+netguardgt.db-wal

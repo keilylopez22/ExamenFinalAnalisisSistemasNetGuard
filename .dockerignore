@@ -1,7 +1,9 @@
-**/bin/
-**/obj/
-**/.vs/
+bin/
+obj/
 *.user
-.git/
-*.md
-NetGuardGT.Tests/
+.vs/
+*.suo
+.env
+netguardgt.db
+netguardgt.db-shm
+netguardgt.db-wal
