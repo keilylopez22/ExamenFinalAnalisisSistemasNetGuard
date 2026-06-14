@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: netguardgt-api
+    runtime: docker
+    dockerfilePath: ./NetGuardGT.Api/Dockerfile
+    dockerContext: ./NetGuardGT.Api
+    plan: free
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+    disk:
+      name: sqlite-data
+      mountPath: /data
+      sizeGB: 1
