@@ -1,0 +1,10 @@
+**/bin/
+**/obj/
+**/.vs/
+*.user
+.git/
+*.md
+NetGuardGT.Tests/
+NetGuardGT.Api/netguardgt.db
+NetGuardGT.Api/netguardgt.db-shm
+NetGuardGT.Api/netguardgt.db-wal
