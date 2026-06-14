@@ -1,3 +1,6 @@
+# URL EN RENDER: 
+https://examenfinalanalisissistemasnetguard-1.onrender.com/Swagger
+
 # NetGuardGT — API REST de Gestión de Incidentes de Red
 
 Sistema de gestión de incidentes para **NetGuard GT**, proveedor de telecomunicaciones en Guatemala. Permite registrar, asignar, escalar y cerrar incidentes de red aplicando reglas de negocio estrictas sobre SLA, especialización de técnicos y flujo de estados.
